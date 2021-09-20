@@ -1,0 +1,50 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<style>
+key {
+    background-color: #eee;
+    border-radius: 3px;
+    border: 1px solid #b4b4b4;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .2), 0 2px 0 0 rgba(255, 255, 255, .7) inset;
+    color: #333;
+    display: inline-block;
+    font-size: .85em;
+    font-weight: bolder;
+    line-height: 1;
+    padding: 4px 5px;
+    white-space: nowrap;
+    font-family:'Courier New', Courier, monospace;
+}
+</style>
+
+<body style="background-color: #222; color: #fff; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+    <div id="FPS">0 FPS</div>
+    <div style="top: 35%; left: 50%; position: fixed; transform: translate(-50%, -35%);">
+        <div style="width: 75%; margin: auto;">
+            <h1 style="text-align: center;" class="animate__animated animate__infinite animate__heartBeat animate__slow">Pong!</h1>
+            <div id="pts0" class="animate__animated" style="float:left;">P1: 0 points</div>
+            <div id="speed" style="float:left; left: 50%; position: fixed; transform: translate(-50%,0%);">Speed: 20</div>
+            <div id="pts1" class="animate__animated" style="float:right;">P2: 0 points</div>
+        </div>
+        <br>
+        <div style="width: 600px; height: 600px; padding: 15px;">
+            <h1 style="position: fixed; text-align: center; width: 600px;" id="wintxt" class="animate__animated"></h1>
+            <canvas id="c" width=600 height=600></canvas>
+        </div>
+    </div>
+    <div style="top: 99%; left: 50%; position: fixed; transform: translate(-50%, -100%); display: flex">
+        <div>
+            Player 1<hr>
+            <key>W</key> Move Up<br>
+            <key>S</key> Move Down
+        </div>
+        <div style="visibility: hidden;">___</div>
+        <div>
+            Player 2<hr>
+            <key>Up</key> Move Up<br>
+            <key>Down</key> Move Down
+        </div>
+    </div>
+</body>
+
+<script src="pong.js"></script>
