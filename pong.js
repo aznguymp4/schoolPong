@@ -7,7 +7,7 @@ const BaseFPS = 1000/60
 const ctx = document.getElementById('c').getContext('2d')
 const cols = ['#3da5ff','#ff403d']; for (let i=0;i<=1;i++) { $(`#pts${i}`).css({color:cols[i]}) }
 const boardSize = 600
-const plrSize = 850
+const plrSize = 85
 const speed = 10
 const trailSize = 100
 const round = Math.round // cache the function!!!!1!!!111!!1
@@ -21,7 +21,7 @@ var P1UP=P1DN=P2UP=P2DN = false
 var pos = [(boardSize/2)-(plrSize/2),(boardSize/2)-(plrSize/2)]
 var trails = []
 var ball = [boardSize/2,boardSize/2]
-var ballDir = 0//;changeDir(rand(0,1)? rand(45,135) : rand(225,315))
+var ballDir = 0;changeDir(rand(0,1)? rand(45,135) : rand(225,315))
 render()
 
 document.addEventListener('keydown', function(e) {
