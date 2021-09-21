@@ -9,8 +9,9 @@ const cols = ['#3da5ff','#ff403d']; for (let i=0;i<=1;i++) { $(`#pts${i}`).css({
 const boardSize = 600
 const plrSize = 85
 const speed = 10
-const trailSize = 100
+const baseTrailSize = 30
 const round = Math.round // cache the function!!!!1!!!111!!1
+var trailSize = 0
 var FPSCount = document.getElementById('FPS') // using stock getElement instead of jQuery cause it might be faster i think? it's important that the FPS counter updates quickly soooo
 var mslf = 0
 var lastPF = performance.now()
@@ -76,13 +77,12 @@ setInterval(()=>{
     } else if(P2DN&&!P2UP) {
         pos[1]=Math.min(boardSize-plrSize, pos[1]+plrSpeed)
     }
-    
 
     var rad = ballDir * (pi/180)
     ball[0] += Math.sin(rad)*ballSpeed*(mslf/BaseFPS)
     ball[1] += Math.cos(rad)*ballSpeed*(mslf/BaseFPS)
 
-    if(trails.length >= trailSize) {trails.shift()}
+    while(trails.length > trailSize) {trails.shift()}
     trails.push([ball[0],ball[1]])
     render()
 
@@ -95,11 +95,17 @@ setInterval(()=>{
     } else if(ball[0]>=boardSize+30) { // passes left wall
         win(1)
     } else if((ball[0]) /* < 72 */.inRange(42,72)  && ball[1].inRange(pos[0]-8, pos[0]+plrSize+8)) { // hits P1
+        ball[0]=72
         changeDir(-(ballDir-180)+180,true)
     } else if((ball[0]) /* > 526 */.inRange(526,558)  && ball[1].inRange(pos[1]-8, pos[1]+plrSize+8)) { // hits P2
+        ball[0]=526
         changeDir(Math.abs(ballDir-180)+180,true)
     }
-},0)
+})
+
+setTimeout(()=>{
+    trailSize = baseTrailSize*(BaseFPS/mslf)
+},100)
 
 function changeDir(deg,addSpeed) {
     ballDir = Math.abs(deg/* +rand(-5,5) */)%360
@@ -137,11 +143,11 @@ function render() {
     ctx.fillStyle = '#373737'
     ctx.fillRect(0,0,600,600)
 
-    trails.map((pos,i) => {
+    trails.map((pos,i) => {//-(baseTrailSize-i)/(1000/mslf)/BaseFPS,(baseTrailSize-i)/(1000/mslf)/BaseFPS
         var s = i/trailSize*10
-        var randX = pos[0]-(s/2) + rand(-(trailSize-i)/2,(trailSize-i)/2)
+        var randX = pos[0]-(s/2) + rand(-5,5)
         ctx.fillStyle = `hsla(${ randX/3+180 /* i*(360/trailSize) */},100%,70%,${i/trailSize*50}%)`
-        ctx.fillRect(randX,pos[1]-(s/2) + rand(-(trailSize-i)/2,(trailSize-i)/2),s,s)
+        ctx.fillRect(randX,pos[1]-(s/2) + rand(-5,5),s,s)
     })
 
     $(`#speed`).css({color:`hsl(${ball[0]/3+180},100%,70%)`})

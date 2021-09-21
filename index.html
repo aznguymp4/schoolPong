@@ -19,9 +19,9 @@ key {
 
 <body style="background-color: #222; color: #fff; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
     <div id="FPS">0 FPS</div>
-    <div style="top: 35%; left: 50%; position: fixed; transform: translate(-50%, -35%);">
+    <div style="top: 30%; left: 50%; position: fixed; transform: translate(-50%, -30%);">
         <div style="width: 75%; margin: auto;">
-            <h1 style="text-align: center;" class="animate__animated animate__infinite animate__heartBeat animate__slow">Pong!</h1>
+            <h1 style="text-align: center;" class="animate__animated animate__infinite animate__heartBeat animate__slow">SchoolPong!</h1>
             <div id="pts0" class="animate__animated" style="float:left;">P1: 0 points</div>
             <div id="speed" style="float:left; left: 50%; position: fixed; transform: translate(-50%,0%);">Speed: 20</div>
             <div id="pts1" class="animate__animated" style="float:right;">P2: 0 points</div>
@@ -32,18 +32,22 @@ key {
             <canvas id="c" width=600 height=600></canvas>
         </div>
     </div>
-    <div style="top: 99%; left: 50%; position: fixed; transform: translate(-50%, -100%); display: flex">
-        <div>
-            Player 1<hr>
-            <key>W</key> Move Up<br>
-            <key>S</key> Move Down
+    <div style="top: 99.5%; left: 50%; position: fixed; transform: translate(-50%, -100%); display: block;">
+        <div style="display: flex;">
+            <div>
+                Player 1<hr>
+                <key>W</key> Move Up<br>
+                <key>S</key> Move Down
+            </div>
+            <div style="visibility: hidden;">___</div>
+            <div>
+                Player 2<hr>
+                <key>Up</key> Move Up<br>
+                <key>Down</key> Move Down
+            </div>
         </div>
-        <div style="visibility: hidden;">___</div>
-        <div>
-            Player 2<hr>
-            <key>Up</key> Move Up<br>
-            <key>Down</key> Move Down
-        </div>
+        <hr>
+        <button style="width: 100%;" onclick="window.open('https\:\/\/github.com/aznguymp4/schoolPong#readme')">Source Code + About</button>
     </div>
 </body>
 
