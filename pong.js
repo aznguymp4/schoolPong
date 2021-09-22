@@ -108,7 +108,7 @@ setTimeout(()=>{
 },100)
 
 function changeDir(deg,addSpeed) {
-    ballDir = Math.abs(deg/* +rand(-5,5) */)%360
+    ballDir = Math.abs(deg+rand(-5,5))%360
     ballSpeed+=addSpeed?.25:0
     $('#speed').html(`Speed: ${~~(ballSpeed*4)}`)
 }
