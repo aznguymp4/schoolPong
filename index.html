@@ -17,6 +17,10 @@ key {
 }
 </style>
 
+<head>
+    <title>SchoolPong</title>
+</head>
+
 <body style="background-color: #222; color: #fff; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
     <div id="FPS">0 FPS</div>
     <div style="top: 30%; left: 50%; position: fixed; transform: translate(-50%, -30%);">
@@ -27,12 +31,12 @@ key {
             <div id="pts1" class="animate__animated" style="float:right;">P2: 0 points</div>
         </div>
         <br>
-        <div style="width: 600px; height: 600px; padding: 15px;">
+        <div style="width: 100%; height: 100%; padding: 15px;">
             <h1 style="position: fixed; text-align: center; width: 600px;" id="wintxt" class="animate__animated"></h1>
-            <canvas id="c" width=600 height=600></canvas>
+            <canvas id="c" width=600 height=600 style="width:100%;"></canvas>
         </div>
     </div>
-    <div style="top: 99.5%; left: 50%; position: fixed; transform: translate(-50%, -100%); display: block;">
+    <div style="width: 100%; max-width: 260px; top: 99.5%; left: 50%; position: fixed; transform: translate(-50%, -100%); display: block;">
         <div style="display: flex;">
             <div>
                 Player 1<hr>
