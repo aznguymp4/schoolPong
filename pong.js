@@ -59,12 +59,17 @@ document.addEventListener('keyup', function(e) {
             break;
     }
 })
+
+var F1S = 0
 setInterval(()=>{
     var now = performance.now() // allows all FPS speeds to run the same
     mslf = now - lastPF // mslf = ms since last frame
     var plrSpeed = speed*(mslf/BaseFPS)*(ballSpeed/9)
     lastPF = now
-    FPSCount.innerHTML = `${round(1000/mslf)} FPS`
+    FPSCount.innerHTML = `${F1S} FPS`
+    F1S++
+    setTimeout(()=>{F1S--},1000)
+
     if(winAnim) return;
     
     if(P1UP&&!P1DN){ // switch cases cant be used here :pensive:
